@@ -5,9 +5,7 @@ const axios = require('axios').default
 var qs = require('qs')
 const port = 3001
 
-const { clientId, authEndpoint, redirectUri, clientSecret } = require('../helper/config');
-const { getRandomString } = require('../helper/spootify');
-
+const { clientId, redirectUri, clientSecret } = require('../helper/config');
 const apiEndpoint = "https://api.spotify.com/v1/";
 
 app.get('/new-releases', (req: Request, res: Response) => {
@@ -17,7 +15,7 @@ app.get('/new-releases', (req: Request, res: Response) => {
     }
   })
   .then((resp: any) => res.send(resp.data))
-  .catch((err: any) => console.log(err))
+  .catch((err: any) => console.log(err.response.data))
 })
 
 app.get('/featured-playlist', (req: Request, res: Response) => {
@@ -27,7 +25,7 @@ app.get('/featured-playlist', (req: Request, res: Response) => {
     }
   })
   .then((resp: any) => res.send(resp.data))
-  .catch((err: any) => console.log(err))
+  .catch((err: any) => console.log(err.response.data))
 })
 
 app.get('/categories', (req: Request, res: Response) => {
@@ -37,7 +35,7 @@ app.get('/categories', (req: Request, res: Response) => {
     }
   })
   .then((resp: any) => res.send(resp.data))
-  .catch((err: any) => console.log(err))
+  .catch((err: any) => console.log(err.response.data))
 })
 
 app.get('/album', (req: Request, res: Response) => {
@@ -95,7 +93,7 @@ app.get('/getToken', (req: Request, res: Response) => {
   .then((resp: any) => {
     res.send({accessToken: resp.data.access_token, refreshToken: resp.data.refresh_token})
   })
-  .catch((err: any) => console.log(err))
+  .catch((err: any) => console.log(err.response.data))
 })
 
 app.listen(port, () => {
