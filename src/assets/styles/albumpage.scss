@@ -1,0 +1,91 @@
+.album-info-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-bottom: 1rem;
+
+  & img {
+    width: 200px;
+    height: 200px;
+  }
+
+  &__info {
+    padding-left: 1.5rem;
+
+    & .dot {
+      &::before {
+        content: '\2022';
+        padding: 0 6px;
+      }
+    }
+  }
+}
+
+.album-tracks-container {
+
+  & li.playlist-track {
+    display: grid;
+    grid-template-columns: 16px 6fr 4fr 3fr minmax(120px,1fr);
+    gap: 1rem;
+    padding: 0.5rem 0;
+
+    & .number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    & .track-data {
+      display: flex;
+      align-items: center;
+
+      &__name {
+        max-width: 380px;
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 1.5rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      &__artists {
+        font-size: 0.875rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        
+        & span {
+          padding: 0 2px 0 0;
+
+          &:nth-child(n+2) {
+            &::before {
+              content: ', ';
+            }
+          }
+        }
+      }
+
+      &__album {
+        font-size: 0.875rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      &__date {
+        font-size: 0.875rem;
+      }
+
+      & img {
+        width: 50px;
+        height: 50px;
+        margin-right: 1rem;
+      }
+    }
+  }
+  
+  & li.track {
+    line-height: 2rem;
+  }
+}
