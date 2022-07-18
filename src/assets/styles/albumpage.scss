@@ -23,6 +23,10 @@
 
 .album-tracks-container {
 
+  & ol {
+    padding: 0;
+  }
+
   & li.playlist-track {
     display: grid;
     grid-template-columns: 16px 6fr 4fr 3fr minmax(120px,1fr);
@@ -50,6 +54,7 @@
       }
 
       &__artists {
+        max-width: 380px;
         font-size: 0.875rem;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -85,7 +90,46 @@
     }
   }
   
-  & li.track {
-    line-height: 2rem;
+  & li.album-track {
+    display: grid;
+    grid-template-columns: 16px 6fr 4fr 3fr minmax(120px,1fr);
+    gap: 1rem;
+    padding: 0.5rem 0;
+
+    & .number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    & .details {
+      &__name {
+        max-width: 380px;
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 1.5rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      &__artists {
+        max-width: 380px;
+        font-size: 0.875rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        
+        & span {
+          padding: 0 2px 0 0;
+
+          &:nth-child(n+2) {
+            &::before {
+              content: ', ';
+            }
+          }
+        }
+      }
+    }
   }
 }

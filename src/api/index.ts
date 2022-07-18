@@ -60,6 +60,16 @@ app.get('/playlist', (req: Request, res: Response) => {
   .catch((err: any) => console.log(err.response.data))
 })
 
+app.get('/user', (req: Request, res: Response) => {
+  axios.get(`${apiEndpoint}me`, {
+    headers: {
+      Authorization: 'Bearer '+req.query.accessToken
+    }
+  })
+  .then((resp: any) => res.send(resp.data))
+  .catch((err: any) => console.log(err.response.data))
+})
+
 app.get('/getToken', (req: Request, res: Response) => {
   var secret = clientId+':'+clientSecret
   var buffer = Buffer.from(secret)

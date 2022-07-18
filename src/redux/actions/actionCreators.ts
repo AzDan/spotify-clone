@@ -55,3 +55,10 @@ export const setCurrentPlaylistData = (data: Playlist) => {
     payload: data
   }
 }
+
+export const setCurrentUser = (data: User) => {
+  return {
+    type: actionTypes.SET_CURRENT_USER,
+    payload: data
+  }
+}

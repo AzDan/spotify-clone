@@ -6,6 +6,7 @@ import { categoryReducer } from './reducers/categoryReducer';
 import { newReleasesReducer } from './reducers/newReleasesReducer';
 import { albumReducer } from './reducers/albumReducer';
 import { cplaylistReducer } from './reducers/cplaylistReducer';
+import { userReducer } from './reducers/userReducer';
 
 const loadFromLocalStorage = () => {
   try {
@@ -25,7 +26,8 @@ export const store = configureStore({
     categories: categoryReducer,
     newReleases: newReleasesReducer,
     currentAlbum: albumReducer,
-    currentPlaylist: cplaylistReducer
+    currentPlaylist: cplaylistReducer,
+    user: userReducer
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().prepend(thunk),
   devTools: process.env.NODE_ENV !== 'production',

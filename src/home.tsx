@@ -3,12 +3,13 @@ import axios from 'axios'
 import { connect } from 'react-redux'
 import { RootState } from './redux/store'
 import { useDispatch } from 'react-redux'
-import { setBrowseCategories, setFeaturedPlaylist, setNewReleases } from './redux/actions/actionCreators'
+import { setBrowseCategories, setCurrentUser, setFeaturedPlaylist, setNewReleases } from './redux/actions/actionCreators'
 import NewReleases from './components/homepage/NewReleases'
 import FeaturedPlaylist from './components/homepage/FeaturedPlaylist'
 import BrowseGenres from './components/homepage/BrowseGenres'
 import './assets/styles/home.scss'
 import Sidebar from './components/global/Sidebar'
+import Topbar from './components/global/Topbar'
 
 type Props = {
   access_token: string
@@ -19,6 +20,15 @@ const Home = (props: Props) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    axios.get('/user', {
+      params: {
+        accessToken: props.access_token
+      }
+    })
+    .then((res: any) => {
+      dispatch(setCurrentUser(res.data))
+    })
+
     axios.get("/new-releases", {
       params: {
         accessToken: props.access_token
@@ -53,10 +63,14 @@ const Home = (props: Props) => {
   return (
     <div className='wrapper'>
       <Sidebar/>
-      <div className='main-area'>
-        <NewReleases/>
-        <FeaturedPlaylist/>
-        <BrowseGenres/>
+      <div className='main-area-container'>
+        <Topbar/>
+        <div className='main-area'>
+          
+          <NewReleases/>
+          <FeaturedPlaylist/>
+          <BrowseGenres/>
+        </div>
       </div>
     </div>
   )
