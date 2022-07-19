@@ -94,6 +94,7 @@
       height: 100%;
 
       &--image {
+        width: 100%;
         position: relative;
         margin-bottom: 1rem;
 
@@ -107,6 +108,7 @@
 
     &--album {
       &-name {
+        max-width: 192px;
         font-size: 1rem;
         font-weight: 700;
         overflow: hidden;
