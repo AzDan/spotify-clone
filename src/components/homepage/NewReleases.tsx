@@ -47,13 +47,15 @@ const NewReleases = (props: Props) => {
       )
     })
   }
-
+  console.log(props.newReleases);
   return (
     <div>
       <h2>New Releases</h2>
-      <div className='container'>
-        {renderNewReleases()}
-      </div>
+      {(Object.keys(props.newReleases).length>0) &&
+        <div className='container'>
+          {renderNewReleases()}
+        </div>
+      }
     </div>
   )
 }

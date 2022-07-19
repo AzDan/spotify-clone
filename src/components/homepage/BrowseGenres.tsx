@@ -27,9 +27,11 @@ const BrowseGenres = (props: Props) => {
   return (
     <div>
       <h2>Browse</h2>
-      <div className='container'>
-        {renderBrowseCategories()}
-      </div>
+      {(Object.keys(props.categories).length>0) &&
+        <div className='container'>
+          {renderBrowseCategories()}
+        </div>
+      }
     </div>
   )
 }

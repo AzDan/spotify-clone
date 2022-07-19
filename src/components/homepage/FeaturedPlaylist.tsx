@@ -47,9 +47,11 @@ const FeaturedPlaylist = (props: Props) => {
   return (
     <div>
       <h2>Featured Playlist</h2>
-      <div className='container'>
-        {renderFeaturedPlaylist()}
-      </div>
+      {(Object.keys(props.featuredList).length>0) &&
+        <div className='container'>
+          {renderFeaturedPlaylist()}
+        </div>
+      }
     </div>
   )
 }

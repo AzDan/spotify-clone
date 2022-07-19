@@ -9,7 +9,9 @@ type Props = {
 const Topbar = (props: Props) => {
   return (
     <div className='topbar'>
-      <span>{props.user.display_name}</span>
+      {(Object.keys(props.user).length>0) &&
+        <span>{props.user.display_name}</span>
+      }
     </div>
   )
 }

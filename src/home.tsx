@@ -66,7 +66,6 @@ const Home = (props: Props) => {
       <div className='main-area-container'>
         <Topbar/>
         <div className='main-area'>
-          
           <NewReleases/>
           <FeaturedPlaylist/>
           <BrowseGenres/>

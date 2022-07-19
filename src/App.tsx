@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Home from './home';
 import { useSearchParams } from 'react-router-dom';
 import axios from 'axios';
@@ -41,7 +41,7 @@ function App() {
   },[authCode, errorMsg, dispatch]);
 
   return (
-    <div className="App">
+    <div className="App"> 
       <Home/>
     </div>
   );
